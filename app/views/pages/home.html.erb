@@ -14,18 +14,33 @@
         </div>
     <% end %>
 
-    <div class="actions">
-      Valitse alku:
-      <%= f.select(:start, @photo.starts) %>
-      Valitse oma tekstisi:
-      <%= f.text_field(:text) %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        Näytä tukesi eduskuntavaaleissa, luo Facebookiin oma Touko Aalto -kansikuvasi ja kerro miksi kannatat juuri Toukoa! Lisätietoja <a href="http://www.toukoaalto.fi">www.toukoaalto.fi</a>
+        <br/>
+        <br/>
+      </div>
     </div>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="row actions">
+      <div class="col-md-10 col-md-offset-1">
+          <%= f.select(:start, @photo.starts) %>
+          <%= f.text_field(:text, :placeholder => ' kirjoita oma syysi', :maxlength => 64) %>
+          <%= f.submit 'Luo kuva!' %>
+        <br/>
+        <br/>
+      </div>
     </div>
 <% end %>
 
-<%= @photo.text.to_s %>
-<%= @photo.id.to_s %>
-<%= image_tag(@photo.url) %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 text-center center">
+    <% if @photo.url.nil? %>
+        <img src='/images/aalto15-fb-cover-default.jpg'/>
+    <% else %>
+        <a href='<%= @photo.url %>' download><img src='<%= @photo.url %>'/></a>
+        <br/>
+        Klikkaa kuvaa ladataksesi tiedoston tietokoneellesi.
+    <% end %>
+  </div>
+</div>

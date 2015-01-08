@@ -17,6 +17,17 @@ class Photo
   FONT = 'Exo-Regular-Italic'
   COLOR = '#2e2e2e'
 
+  # word wrap options
+  ROW_1_START = 0
+  ROW_1_END = 8
+  ROW_2_START = 8
+  ROW_2_END = 32
+  ROW_3_START = 32
+  ROW_3_END = 50
+  ROW_4_START = 50
+  ROW_4_END = 64
+
+
   def addtext
     self.id = Time.now.to_i.to_s + '_' + SecureRandom.hex
     self.img = MiniMagick::Image.open(IMAGE_FILE)
@@ -41,13 +52,13 @@ class Photo
     counter = 0
     words.each do |w|
       counter = counter + w.to_s.length
-      if counter > 0 and counter < 8
+      if counter >= ROW_1_START and counter < ROW_1_END
         self.row1 << w.to_s
-      elsif counter > 8 and counter < 32
+      elsif counter >= ROW_2_START and counter < ROW_2_END
         self.row2 << w.to_s
-      elsif counter > 32 and counter < 52
+      elsif counter >= ROW_3_START and counter < ROW_3_END
         self.row3 << w.to_s
-      elsif counter > 52 and counter < 68
+      elsif counter >= ROW_4_START and counter < ROW_4_END
         self.row4 << w.to_s
       end
     end
@@ -74,8 +85,8 @@ class Photo
   end
 
   def save_to_file
-    self.img.write self.id.to_s+'.jpg'
-    self.url = self.id.to_s+'.jpg'
+    self.img.write 'public/images/'+self.id.to_s+'.jpg'
+    self.url = '/images/'+self.id.to_s+'.jpg'
   end
 
   def starts
