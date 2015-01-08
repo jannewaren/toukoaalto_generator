@@ -1,5 +1,5 @@
 <% title("Touko2015") %>
-<h1><i class="fa fa-home"></i> Toukogeneraattori <small>- Luo oma Touko Aalto -kansikuvasi</small></h1>
+<h1><i class="fa fa-home"></i> ToukoGeneraattori <small>- Luo oma Touko Aalto -kansikuvasi</small></h1>
 
 <%= form_for(@photo) do |f| %>
     <% if @photo.errors.any? %>
@@ -40,7 +40,7 @@
     <% else %>
         <a href='<%= @photo.url %>' download><img src='<%= @photo.url %>'/></a>
         <br/>
-        Klikkaa kuvaa ladataksesi tiedoston tietokoneellesi.
+        Klikkaa kuvaa ladataksesi tiedosto tietokoneellesi.
     <% end %>
   </div>
 </div>

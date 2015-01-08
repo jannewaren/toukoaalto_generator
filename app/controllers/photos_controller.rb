@@ -1,11 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
-  # GET /photos/1
-  # GET /photos/1.json
-  def show
-  end
-
   # GET /photos/new
   def new
     @photo = Photo.new
