@@ -37,10 +37,7 @@ group :development, :test do
   gem 'spring', '1.2.0'
 end
 
-# SQLite 3
-group :development, :test do
-  gem 'sqlite3', '1.3.10'
-end
+gem 'sqlite3', '1.3.10'
 
 # Unicorn: http://unicorn.bogomips.org
 group :production do
