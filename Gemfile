@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.0'
 
 # Standard Rails gems
 gem 'rails', '4.2.0'
@@ -46,3 +46,6 @@ end
 group :production do
   gem 'unicorn'
 end
+
+gem "therubyracer"
+gem "mini_magick"

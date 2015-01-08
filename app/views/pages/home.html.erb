@@ -1,2 +1,31 @@
-<% title("Home Page") %>
-<h1><i class="fa fa-home"></i> Home Page <small>views/pages/home.html.erb</small></h1>
+<% title("Touko2015") %>
+<h1><i class="fa fa-home"></i> Toukogeneraattori <small>- Luo oma Touko Aalto -kansikuvasi</small></h1>
+
+<%= form_for(@photo) do |f| %>
+    <% if @photo.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+          <ul>
+            <% @photo.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="actions">
+      Valitse alku:
+      <%= f.select(:start, @photo.starts) %>
+      Valitse oma tekstisi:
+      <%= f.text_field(:text) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<%= @photo.text.to_s %>
+<%= @photo.id.to_s %>
+<%= image_tag(@photo.url) %>
