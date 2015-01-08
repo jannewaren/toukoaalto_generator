@@ -1,25 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Facebook cover photo generator for Touko Aalto at Finnish Parliament elections 2015.
+Site running at http://touko2015.jannewaren.fi. No database / ActiveRecord is used,
+and all photos are saved to disk.
 
-Things you may want to cover:
+Using ImageMagick / minimagick and Railsbricks.
+
+If you have ever wondered what's "spaghetti code" or "quick and dirty" is, you're looking at it.
+
+* Missing things
+
+Tests, tests, tests and tests.
 
 * Ruby version
 
-* System dependencies
+Tested using Ruby 2.2.0 and Rails 4.2.0
 
-* Configuration
+* More info
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Contact http://www.jannewaren.fi
