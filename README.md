@@ -8,14 +8,14 @@ Using ImageMagick / minimagick and Railsbricks.
 
 If you have ever wondered what's "spaghetti code" or "quick and dirty" is, you're looking at it.
 
-* Missing things
+## Missing things
 
 Tests, tests, tests and tests.
 
-* Ruby version
+## Ruby version
 
 Tested using Ruby 2.2.0 and Rails 4.2.0
 
-* More info
+## More info
 
 Contact http://www.jannewaren.fi
