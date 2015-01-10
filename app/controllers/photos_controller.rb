@@ -11,7 +11,6 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.addtext
-    @photo.save_to_file
 
     respond_to do |format|
       format.html { render 'pages/home' }
