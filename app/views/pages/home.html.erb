@@ -1,46 +1,7 @@
-<% title("Touko2015") %>
-<h1><i class="fa fa-home"></i> ToukoGeneraattori <small>- Luo oma Touko Aalto -kansikuvasi</small></h1>
-
-<%= form_for(@photo) do |f| %>
-    <% if @photo.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
-
-          <ul>
-            <% @photo.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        Näytä tukesi eduskuntavaaleissa, luo Facebookiin oma Touko Aalto -kansikuvasi ja kerro miksi kannatat juuri Toukoa! Lisätietoja <a href="http://www.toukoaalto.fi">www.toukoaalto.fi</a>
-        <br/>
-        <br/>
-      </div>
-    </div>
-
-    <div class="row actions">
-      <div class="col-md-10 col-md-offset-1">
-          <%= f.select(:start, @photo.starts) %>
-          <%= f.text_field(:text, :placeholder => ' kirjoita oma syysi', :maxlength => 64) %>
-          <%= f.submit 'Luo kuva!' %>
-        <br/>
-        <br/>
-      </div>
-    </div>
-<% end %>
+<%= render 'pages/form' %>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1 text-center center">
-    <% if @photo.url.nil? %>
-        <img src='/images/aalto15-fb-cover-default.jpg'/>
-    <% else %>
-        <a href='<%= @photo.url %>' download><img src='<%= @photo.url %>'/></a>
-        <br/>
-        Klikkaa kuvaa ladataksesi tiedosto tietokoneellesi.
-    <% end %>
+    <img src='/images/aalto15-fb-cover-default.jpg'/>
   </div>
 </div>

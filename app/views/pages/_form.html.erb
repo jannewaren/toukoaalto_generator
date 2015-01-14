@@ -1,0 +1,11 @@
+<%= form_for(@emptyphoto) do |f| %>
+    <div class="row actions">
+      <div class="col-md-10 col-md-offset-1">
+        <%= f.select(:start, @emptyphoto.starts) %>
+        <%= f.text_field(:text, :placeholder => ' kirjoita oma syysi', :maxlength => 64) %>
+        <%= f.submit 'Luo kuva!' %>
+        <br/>
+        <br/>
+      </div>
+    </div>
+<% end %>

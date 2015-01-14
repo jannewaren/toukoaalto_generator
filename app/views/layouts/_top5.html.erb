@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center center-block">
+        <p>
+        <br/>
+        <br/>
+          <h3>Voit myös valita jonkun suosituimmista syistä:</h3>
+            <table border="1px black solid"><tr>
+                <% @top5.each do |t| %>
+                  <td>
+                    <%= link_to t do %>
+                        <img src='<%= t.url %>' height="100" width="270"/>
+                    <% end %>
+                  </td>
+              <% end %>
+            </tr></table>
+        </p>
+      </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@
 
 Facebook cover photo generator for candidate Touko Aalto in the Finnish Parliament elections 2015.
 Site running at http://touko2015.jannewaren.fi or http://facebook.toukoaalto.fi.
-No database / ActiveRecord is used, and all photos are saved to disk.
+Image details (text) are saved in database, and the actual files are saved on disk only (public/images/).
 
 Using ImageMagick / minimagick and Railsbricks.
 

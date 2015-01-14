@@ -1,14 +1,23 @@
-# SQLite version 3.x
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
 development:
   adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+staging:
+  adapter: mysql2
+  host: localhost
+  database: ENV["TOUKO_DB_DATABASE"]
+  username: ENV["TOUKO_DB_USERNAME"]
+  password: ENV["TOUKO_DB_PASSWORD"]
   pool: 5
-  timeout: 5000
+  socket: /tmp/mysql.sock
+
+production:
+  adapter: mysql2
+  host: localhost
+  database: ENV["TOUKO_DB_DATABASE"]
+  username: ENV["TOUKO_DB_USERNAME"]
+  password: ENV["TOUKO_DB_PASSWORD"]
+  pool: 5
+  socket: /tmp/mysql.sock

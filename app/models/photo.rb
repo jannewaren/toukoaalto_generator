@@ -1,10 +1,14 @@
-class Photo
-  include ActiveModel::Model
-  attr_accessor :start, :text, :url
+class Photo < ActiveRecord::Base
   require 'securerandom'
+  scope :popular, -> { order('views').last(5) }
+
+  # use secrect_id in url instead of id
+  def to_param
+    secret_id
+  end
 
   # texts and positions
-  STARTS = ['Äänestän Toukoa koska ','Tuen Toukoa koska ', 'Kannatan Toukoa koska ']
+  STARTS = ['Äänestän Toukoa, koska ','Tuen Toukoa, koska ', 'Kannatan Toukoa, koska ']
   POSITION_1 = '+78+55'
   POSITION_2 = '+78+100'
   POSITION_3 = '+190+145'
@@ -28,17 +32,14 @@ class Photo
   ROW_4_END = 64
 
   # Master method to really create the image and control workflow
-  def addtext
-    randomid = Time.now.to_i.to_s + '_' + SecureRandom.hex
+  def addtext(url)
     img = MiniMagick::Image.open(IMAGE_FILE)
-
-    rows = split_text_into_rows(self.text)
+    rows = split_text_into_rows(text)
     addrow(img, rows[0], POSITION_1)
     addrow(img, rows[1], POSITION_2)
     addrow(img, rows[2], POSITION_3)
     addrow(img, rows[3], POSITION_4)
-
-    save_to_file(img, randomid)
+    save_to_file(img, url)
   end
 
   def split_text_into_rows(text)
@@ -51,7 +52,7 @@ class Photo
     row4 = Array.new
 
     # add the starting phrase to first row
-    self.start.split(' ').each do |s|
+    start.split(' ').each do |s|
       row1 << s.to_s
     end
 
@@ -95,13 +96,22 @@ class Photo
     return temp
   end
 
-  def save_to_file(img, randomid)
-    img.write 'public/images/'+randomid.to_s+'.jpg'
-    self.url = '/images/'+randomid.to_s+'.jpg'
+  def save_to_file(img, url)
+    img.write 'public'+url
   end
 
   def starts
     STARTS
+  end
+
+  def add_to_view_count(amount)
+    if Photo.exists?(slug: slug)
+      otherphoto = Photo.find_by_slug(slug)
+      otherphoto.views = otherphoto.views + amount
+      otherphoto.save
+    else
+      self.views = views + amount
+    end
   end
 
 end

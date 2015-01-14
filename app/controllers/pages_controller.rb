@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   
   def home
-    @photo = Photo.new
+    @emptyphoto = Photo.new
+    @top5 = Photo.popular
   end
   
 end
