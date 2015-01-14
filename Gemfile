@@ -11,6 +11,7 @@ gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.6'
 gem 'bcrypt', '3.1.9'
 gem 'therubyracer' #needed on linux for javascript
+gem 'mysql2'
 
 # From Railsbricks
 gem 'kaminari', '0.16.1' # Kaminari: https://github.com/amatsuda/kaminari
@@ -28,9 +29,3 @@ group :development, :test do
   gem 'spring', '1.2.0'
   gem 'sqlite3', '1.3.10'
 end
-
-# Production
-group :production do
-  gem 'mysql2'
-end
-
