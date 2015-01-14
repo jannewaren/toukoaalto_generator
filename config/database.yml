@@ -7,15 +7,15 @@ development:
 staging:
   adapter: mysql2
   host: localhost
-  database: <%= ENV["TOUKO_DB_DATABASE"] %>
-  username: <%= ENV["TOUKO_DB_USERNAME"] %>
-  password: <%= ENV["TOUKO_DB_PASSWORD"] %>
+  database: <%= Figaro.env.TOUKO_DB_DATABASE %>
+  username: <%= Figaro.env.TOUKO_DB_USERNAME %>
+  password: <%= Figaro.env.TOUKO_DB_PASSWORD %>
   pool: 5
 
 production:
   adapter: mysql2
   host: localhost
-  database: <%= ENV["TOUKO_DB_DATABASE"] %>
-  username: <%= ENV["TOUKO_DB_USERNAME"] %>
-  password: <%= ENV["TOUKO_DB_PASSWORD"] %>
+  database: <%= Figaro.env.TOUKO_DB_DATABASE %>
+  username: <%= Figaro.env.TOUKO_DB_USERNAME %>
+  password: <%= Figaro.env.TOUKO_DB_PASSWORD %>
   pool: 5
