@@ -18,6 +18,7 @@ gem 'kaminari', '0.16.1' # Kaminari: https://github.com/amatsuda/kaminari
 gem 'friendly_id', '5.0.4' # Friendly_id: https://github.com/norman/friendly_id
 gem 'font-awesome-sass', '4.2.2' # Font-awesome: https://github.com/FortAwesome/font-awesome-sass
 gem 'bootstrap-sass', '3.3.1.0' # Bootstrap 3: https://github.com/twbs/bootstrap-sass
+gem 'figaro'
 
 # Application specific, needed for functionality
 gem 'mini_magick'
