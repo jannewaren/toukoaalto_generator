@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   require 'securerandom'
-  scope :popular, -> { order('views').last(5) }
+  scope :popular, -> { order('views').last(4) }
 
   # use secrect_id in url instead of id
   def to_param
