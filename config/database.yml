@@ -11,7 +11,6 @@ staging:
   username: ENV["TOUKO_DB_USERNAME"]
   password: ENV["TOUKO_DB_PASSWORD"]
   pool: 5
-  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
@@ -20,4 +19,3 @@ production:
   username: ENV["TOUKO_DB_USERNAME"]
   password: ENV["TOUKO_DB_PASSWORD"]
   pool: 5
-  socket: /tmp/mysql.sock
