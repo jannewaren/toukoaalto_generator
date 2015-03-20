@@ -11,8 +11,8 @@ class Photo < ActiveRecord::Base
   STARTS = ['Äänestän Toukoa, koska ','Tuen Toukoa, koska ', 'Kannatan Toukoa, koska ']
   POSITION_1 = '+78+55'
   POSITION_2 = '+78+100'
-  POSITION_3 = '+190+145'
-  POSITION_4 = '+220+190'
+  POSITION_3 = '+78+145'
+  POSITION_4 = '+78+190'
 
   # mogrify options
   IMAGE_FILE = 'aalto15-fb-cover-no-text.jpg'
@@ -25,11 +25,11 @@ class Photo < ActiveRecord::Base
   ROW_1_START = 0
   ROW_1_END = 8
   ROW_2_START = 8
-  ROW_2_END = 32
-  ROW_3_START = 32
-  ROW_3_END = 50
-  ROW_4_START = 50
-  ROW_4_END = 64
+  ROW_2_END = 28
+  ROW_3_START = 28
+  ROW_3_END = 40
+  ROW_4_START = 40
+  ROW_4_END = 52
 
   # Master method to really create the image and control workflow
   def addtext(url)
