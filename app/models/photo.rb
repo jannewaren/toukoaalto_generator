@@ -9,10 +9,11 @@ class Photo < ActiveRecord::Base
 
   # texts and positions
   STARTS = ['Äänestän Toukoa, koska ','Tuen Toukoa, koska ', 'Kannatan Toukoa, koska ']
-  POSITION_1 = '+78+55'
-  POSITION_2 = '+78+100'
-  POSITION_3 = '+78+145'
-  POSITION_4 = '+78+190'
+  POSITION_1 = '+78+45'
+  POSITION_2 = '+78+90'
+  POSITION_3 = '+200+135'
+  POSITION_4 = '+220+180'
+  POSITION_5 = '+220+225'
 
   # mogrify options
   IMAGE_FILE = 'aalto15-fb-cover-no-text.jpg'
@@ -27,9 +28,11 @@ class Photo < ActiveRecord::Base
   ROW_2_START = 8
   ROW_2_END = 28
   ROW_3_START = 28
-  ROW_3_END = 40
-  ROW_4_START = 40
-  ROW_4_END = 52
+  ROW_3_END = 36
+  ROW_4_START = 36
+  ROW_4_END = 43
+  ROW_5_START = 43
+  ROW_5_END = 55 #a little more to fit in the last word
 
   # Master method to really create the image and control workflow
   def addtext(url)
@@ -39,6 +42,7 @@ class Photo < ActiveRecord::Base
     addrow(img, rows[1], POSITION_2)
     addrow(img, rows[2], POSITION_3)
     addrow(img, rows[3], POSITION_4)
+    addrow(img, rows[4], POSITION_5)
     save_to_file(img, url)
   end
 
@@ -50,6 +54,7 @@ class Photo < ActiveRecord::Base
     row2 = Array.new
     row3 = Array.new
     row4 = Array.new
+    row5 = Array.new
 
     # add the starting phrase to first row
     start.split(' ').each do |s|
@@ -57,7 +62,7 @@ class Photo < ActiveRecord::Base
     end
 
     words.each do |w|
-      counter = counter + w.to_s.length
+      counter = counter + w.to_s.length + 1
       if counter >= ROW_1_START and counter < ROW_1_END
         row1 << w.to_s
       elsif counter >= ROW_2_START and counter < ROW_2_END
@@ -66,13 +71,18 @@ class Photo < ActiveRecord::Base
         row3 << w.to_s
       elsif counter >= ROW_4_START and counter < ROW_4_END
         row4 << w.to_s
+      elsif counter >= ROW_5_START and counter < ROW_5_END
+        row5 << w.to_s
       end
+      puts 'word: ' + w.to_s
+      puts 'counter: ' + counter.to_s
     end
 
     rows << row1
     rows << row2
     rows << row3
     rows << row4
+    rows << row5
     return rows
   end
 
