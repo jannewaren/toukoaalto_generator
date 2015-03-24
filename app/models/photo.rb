@@ -9,11 +9,12 @@ class Photo < ActiveRecord::Base
 
   # texts and positions
   STARTS = ['Äänestän Toukoa, koska ','Tuen Toukoa, koska ', 'Kannatan Toukoa, koska ']
-  POSITION_1 = '+78+45'
-  POSITION_2 = '+78+90'
-  POSITION_3 = '+200+135'
-  POSITION_4 = '+220+180'
-  POSITION_5 = '+220+225'
+  POSITION_1 = '+78+25'
+  POSITION_2 = '+78+70'
+  POSITION_3 = '+78+115'
+  POSITION_4 = '+190+160'
+  POSITION_5 = '+190+205'
+  POSITION_6 = '+190+250'
 
   # mogrify options
   IMAGE_FILE = 'aalto15-fb-cover-no-text.jpg'
@@ -24,15 +25,17 @@ class Photo < ActiveRecord::Base
 
   # word wrap options
   ROW_1_START = 0
-  ROW_1_END = 8
-  ROW_2_START = 8
-  ROW_2_END = 28
-  ROW_3_START = 28
-  ROW_3_END = 36
-  ROW_4_START = 36
-  ROW_4_END = 43
-  ROW_5_START = 43
-  ROW_5_END = 55 #a little more to fit in the last word
+  ROW_1_END = 10
+  ROW_2_START = 10
+  ROW_2_END = 34
+  ROW_3_START = 34
+  ROW_3_END = 54
+  ROW_4_START = 54
+  ROW_4_END = 62
+  ROW_5_START = 62
+  ROW_5_END = 70
+  ROW_6_START = 70
+  ROW_6_END = 86  #a little more to fit in the last word
 
   # Master method to really create the image and control workflow
   def addtext(url)
@@ -43,6 +46,7 @@ class Photo < ActiveRecord::Base
     addrow(img, rows[2], POSITION_3)
     addrow(img, rows[3], POSITION_4)
     addrow(img, rows[4], POSITION_5)
+    addrow(img, rows[5], POSITION_6)
     save_to_file(img, url)
   end
 
@@ -55,6 +59,7 @@ class Photo < ActiveRecord::Base
     row3 = Array.new
     row4 = Array.new
     row5 = Array.new
+    row6 = Array.new
 
     # add the starting phrase to first row
     start.split(' ').each do |s|
@@ -73,6 +78,8 @@ class Photo < ActiveRecord::Base
         row4 << w.to_s
       elsif counter >= ROW_5_START and counter < ROW_5_END
         row5 << w.to_s
+      elsif counter >= ROW_6_START and counter < ROW_6_END
+        row6 << w.to_s
       end
       puts 'word: ' + w.to_s
       puts 'counter: ' + counter.to_s
@@ -83,6 +90,7 @@ class Photo < ActiveRecord::Base
     rows << row3
     rows << row4
     rows << row5
+    rows << row6
     return rows
   end
 
