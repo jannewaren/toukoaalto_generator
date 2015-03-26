@@ -16,7 +16,7 @@ Tests, tests, tests and tests.
 
 ## Ruby version
 
-Tested using Ruby 2.2.0 and Rails 4.2.0
+Tested using Ruby 2.2.1 and Rails 4.2.1
 
 ## More info
 
