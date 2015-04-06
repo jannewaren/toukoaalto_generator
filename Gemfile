@@ -9,7 +9,7 @@ gem 'coffee-rails', '4.1.0'
 gem 'jquery-rails', '4.0.2'
 gem 'turbolinks', '2.5.3'
 gem 'jbuilder', '2.2.6'
-gem 'bcrypt', '3.1.9'
+gem 'bcrypt', '3.1.10'
 gem 'therubyracer' #needed on linux for javascript
 gem 'mysql2'
 
