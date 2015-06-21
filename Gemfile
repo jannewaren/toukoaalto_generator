@@ -25,8 +25,8 @@ gem 'mini_magick', '4.2.7'
 
 # Development & testing helpers
 group :development, :test do
-  gem 'byebug', '4.0.5'
-  gem 'web-console', '2.1.2'
-  gem 'spring', '1.3.3'
+  gem 'byebug', '5.0.0'
+  gem 'web-console', '2.1.3'
+  gem 'spring', '1.3.6'
   gem 'sqlite3', '1.3.10'
 end
